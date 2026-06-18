@@ -3,9 +3,9 @@ import Navbar from "./Navbar";
 
 export default function FeaturesHero() {
   return (
-    <section className="relative overflow-hidden rounded-[28px] mx-3 md:mx-6 mt-4 bg-ink-900">
-      <div className="absolute inset-0 bg-gradient-to-br from-ink-950 via-ink-900 to-teal-900/40" />
-      <div className="absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_30%,black,transparent)]" />
+    <section className="relative overflow-hidden rounded-[28px] mx-3 md:mx-6 mt-4 bg-teal-50 dark:bg-ink-900 transition-colors duration-300">
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-white to-teal-100 dark:from-ink-950 dark:via-ink-900 dark:to-teal-900/40" />
+      <div className="absolute inset-0 bg-grid opacity-30 dark:opacity-60 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_30%,black,transparent)]" />
       <motion.div
         animate={{ opacity: [0.4, 0.7, 0.4] }}
         transition={{ duration: 6, repeat: Infinity }}
@@ -20,7 +20,7 @@ export default function FeaturesHero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="inline-flex items-center gap-2 rounded-full border border-teal-400/30 bg-teal-400/10 px-3.5 py-1.5 text-xs font-semibold text-teal-300 mb-6"
+            className="inline-flex items-center gap-2 rounded-full border border-teal-200 dark:border-teal-400/30 bg-teal-50 dark:bg-teal-400/10 px-3.5 py-1.5 text-xs font-semibold text-teal-700 dark:text-teal-300 mb-6"
           >
             Engineered for total privacy
           </motion.div>
@@ -29,7 +29,7 @@ export default function FeaturesHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] text-white max-w-2xl"
+            className="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] text-ink-950 dark:text-white max-w-2xl"
           >
             Every feature you need.
             <br />
@@ -40,7 +40,7 @@ export default function FeaturesHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-6 max-w-lg text-base text-white/55 leading-relaxed"
+            className="mt-6 max-w-lg text-base text-ink-600/70 dark:text-white/55 leading-relaxed"
           >
             Security, speed, and anonymity — built into one app, not bolted
             on as an afterthought.

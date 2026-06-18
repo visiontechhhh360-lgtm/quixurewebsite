@@ -45,8 +45,8 @@ export default function Checkout() {
 
   return (
     <>
-      <section className="relative overflow-hidden rounded-[28px] mx-3 md:mx-6 mt-4 bg-ink-900">
-        <div className="absolute inset-0 bg-gradient-to-br from-ink-950 via-ink-900 to-teal-900/40" />
+      <section className="relative overflow-hidden rounded-[28px] mx-3 md:mx-6 mt-4 bg-teal-50 dark:bg-ink-900 transition-colors duration-300">
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-white to-teal-100 dark:from-ink-950 dark:via-ink-900 dark:to-teal-900/40" />
         <div className="absolute inset-0 bg-grid opacity-[0.06]" />
         <motion.div
           animate={{ opacity: [0.3, 0.55, 0.3] }}
@@ -64,10 +64,10 @@ export default function Checkout() {
               transition={{ duration: 0.5 }}
               className="text-center max-w-xl mx-auto mb-12"
             >
-              <p className="text-xs font-bold uppercase tracking-widest text-teal-400 mb-4">
+              <p className="text-xs font-bold uppercase tracking-widest text-teal-600 dark:text-teal-400 mb-4">
                 Secure Checkout
               </p>
-              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-ink-950 dark:text-white">
                 Complete your subscription
               </h1>
             </motion.div>
@@ -77,7 +77,7 @@ export default function Checkout() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="rounded-[28px] border border-white/10 bg-white/[0.04] backdrop-blur-xl p-7 md:p-9"
+                className="rounded-[28px] border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.02] dark:bg-white/[0.04] backdrop-blur-xl p-7 md:p-9"
               >
                 <AnimatePresence mode="wait">
                   {status === "success" ? (
@@ -95,8 +95,8 @@ export default function Checkout() {
                       >
                         <CheckCircle2 size={40} />
                       </motion.span>
-                      <h2 className="text-2xl font-bold text-white mb-2">Payment Successful</h2>
-                      <p className="text-sm text-white/50 max-w-xs">
+                      <h2 className="text-2xl font-bold text-ink-950 dark:text-white mb-2">Payment Successful</h2>
+                      <p className="text-sm text-ink-600/70 dark:text-white/50 max-w-xs">
                         Your {plan.name} plan is now active. A confirmation
                         email is on its way to {email || "your inbox"}.
                       </p>
@@ -131,31 +131,31 @@ export default function Checkout() {
 
                       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                         <div className="flex flex-col gap-2">
-                          <label className="text-sm font-semibold text-white">Email Address</label>
+                          <label className="text-sm font-semibold text-ink-950 dark:text-white">Email Address</label>
                           <input
                             type="email"
                             required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="you@example.com"
-                            className="rounded-xl border border-white/10 bg-ink-950/60 px-4 py-3.5 text-sm text-white placeholder:text-white/30 outline-none focus:border-teal-400/60 transition-colors"
+                            className="rounded-xl border border-ink-950/10 dark:border-white/10 bg-ink-950/5 dark:bg-ink-950/60 px-4 py-3.5 text-sm text-ink-950 dark:text-white placeholder:text-ink-600/40 dark:placeholder:text-white/30 outline-none focus:border-teal-400/60 transition-colors"
                           />
                         </div>
 
                         <div className="flex flex-col gap-2">
-                          <label className="text-sm font-semibold text-white">Cardholder Name</label>
+                          <label className="text-sm font-semibold text-ink-950 dark:text-white">Cardholder Name</label>
                           <input
                             type="text"
                             required
                             value={cardName}
                             onChange={(e) => setCardName(e.target.value)}
                             placeholder="Name on card"
-                            className="rounded-xl border border-white/10 bg-ink-950/60 px-4 py-3.5 text-sm text-white placeholder:text-white/30 outline-none focus:border-teal-400/60 transition-colors"
+                            className="rounded-xl border border-ink-950/10 dark:border-white/10 bg-ink-950/5 dark:bg-ink-950/60 px-4 py-3.5 text-sm text-ink-950 dark:text-white placeholder:text-ink-600/40 dark:placeholder:text-white/30 outline-none focus:border-teal-400/60 transition-colors"
                           />
                         </div>
 
                         <div className="flex flex-col gap-2">
-                          <label className="text-sm font-semibold text-white">Card Number</label>
+                          <label className="text-sm font-semibold text-ink-950 dark:text-white">Card Number</label>
                           <div className="relative">
                             <input
                               type="text"
@@ -164,15 +164,15 @@ export default function Checkout() {
                               value={cardNumber}
                               onChange={(e) => setCardNumber(formatCardNumber(e.target.value))}
                               placeholder="1234 5678 9012 3456"
-                              className="w-full rounded-xl border border-white/10 bg-ink-950/60 px-4 py-3.5 pr-11 text-sm text-white placeholder:text-white/30 outline-none focus:border-teal-400/60 transition-colors"
+                              className="w-full rounded-xl border border-ink-950/10 dark:border-white/10 bg-ink-950/5 dark:bg-ink-950/60 px-4 py-3.5 pr-11 text-sm text-ink-950 dark:text-white placeholder:text-ink-600/40 dark:placeholder:text-white/30 outline-none focus:border-teal-400/60 transition-colors"
                             />
-                            <CreditCard size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-white/30" />
+                            <CreditCard size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-ink-600/40 dark:text-white/30" />
                           </div>
                         </div>
 
                         <div className="grid grid-cols-2 gap-4">
                           <div className="flex flex-col gap-2">
-                            <label className="text-sm font-semibold text-white">Expiry Date</label>
+                            <label className="text-sm font-semibold text-ink-950 dark:text-white">Expiry Date</label>
                             <input
                               type="text"
                               required
@@ -180,11 +180,11 @@ export default function Checkout() {
                               value={expiry}
                               onChange={(e) => setExpiry(formatExpiry(e.target.value))}
                               placeholder="MM/YY"
-                              className="rounded-xl border border-white/10 bg-ink-950/60 px-4 py-3.5 text-sm text-white placeholder:text-white/30 outline-none focus:border-teal-400/60 transition-colors"
+                              className="rounded-xl border border-ink-950/10 dark:border-white/10 bg-ink-950/5 dark:bg-ink-950/60 px-4 py-3.5 text-sm text-ink-950 dark:text-white placeholder:text-ink-600/40 dark:placeholder:text-white/30 outline-none focus:border-teal-400/60 transition-colors"
                             />
                           </div>
                           <div className="flex flex-col gap-2">
-                            <label className="text-sm font-semibold text-white">CVV</label>
+                            <label className="text-sm font-semibold text-ink-950 dark:text-white">CVV</label>
                             <input
                               type="text"
                               required
@@ -193,7 +193,7 @@ export default function Checkout() {
                               value={cvv}
                               onChange={(e) => setCvv(e.target.value.replace(/\D/g, "").slice(0, 4))}
                               placeholder="123"
-                              className="rounded-xl border border-white/10 bg-ink-950/60 px-4 py-3.5 text-sm text-white placeholder:text-white/30 outline-none focus:border-teal-400/60 transition-colors"
+                              className="rounded-xl border border-ink-950/10 dark:border-white/10 bg-ink-950/5 dark:bg-ink-950/60 px-4 py-3.5 text-sm text-ink-950 dark:text-white placeholder:text-ink-600/40 dark:placeholder:text-white/30 outline-none focus:border-teal-400/60 transition-colors"
                             />
                           </div>
                         </div>
@@ -219,7 +219,7 @@ export default function Checkout() {
                           )}
                         </button>
 
-                        <p className="flex items-center justify-center gap-1.5 text-[11px] text-white/30">
+                        <p className="flex items-center justify-center gap-1.5 text-[11px] text-ink-600/50 dark:text-white/30">
                           <ShieldCheck size={12} /> 256-bit encrypted payment · PCI DSS compliant
                         </p>
                       </form>
@@ -232,37 +232,37 @@ export default function Checkout() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="h-fit rounded-[28px] border border-white/10 bg-white/[0.04] backdrop-blur-xl p-7"
+                className="h-fit rounded-[28px] border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.02] dark:bg-white/[0.04] backdrop-blur-xl p-7"
               >
-                <h3 className="text-sm font-bold uppercase tracking-wide text-white/40 mb-6">
+                <h3 className="text-sm font-bold uppercase tracking-wide text-ink-600/60 dark:text-white/40 mb-6">
                   Order Summary
                 </h3>
 
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-base font-semibold text-white">Quixure {plan.name}</span>
-                  <span className="text-base font-bold text-white">${plan.price.toFixed(2)}</span>
+                  <span className="text-base font-semibold text-ink-950 dark:text-white">Quixure {plan.name}</span>
+                  <span className="text-base font-bold text-ink-950 dark:text-white">${plan.price.toFixed(2)}</span>
                 </div>
-                <p className="text-xs text-white/40 mb-6">{plan.billedAs}</p>
+                <p className="text-xs text-ink-600/50 dark:text-white/40 mb-6">{plan.billedAs}</p>
 
-                <div className="flex flex-col gap-2.5 border-t border-white/10 pt-5 mb-5">
+                <div className="flex flex-col gap-2.5 border-t border-ink-950/10 dark:border-white/10 pt-5 mb-5">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-white/50">Subtotal</span>
-                    <span className="text-white">${plan.price.toFixed(2)}</span>
+                    <span className="text-ink-600/60 dark:text-white/50">Subtotal</span>
+                    <span className="text-ink-950 dark:text-white">${plan.price.toFixed(2)}</span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-white/50">Tax</span>
-                    <span className="text-white">$0.00</span>
+                    <span className="text-ink-600/60 dark:text-white/50">Tax</span>
+                    <span className="text-ink-950 dark:text-white">$0.00</span>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between border-t border-white/10 pt-5">
-                  <span className="text-base font-bold text-white">Total</span>
+                <div className="flex items-center justify-between border-t border-ink-950/10 dark:border-white/10 pt-5">
+                  <span className="text-base font-bold text-ink-950 dark:text-white">Total</span>
                   <span className="text-xl font-bold text-teal-300">${plan.price.toFixed(2)}</span>
                 </div>
 
                 <div className="mt-7 flex items-center gap-2 rounded-xl border border-teal-400/20 bg-teal-400/5 px-4 py-3">
                   <ShieldCheck size={16} className="text-teal-300 flex-shrink-0" />
-                  <p className="text-xs text-white/60">Cancel anytime, no questions asked.</p>
+                  <p className="text-xs text-ink-600/70 dark:text-white/60">Cancel anytime, no questions asked.</p>
                 </div>
               </motion.div>
             </div>

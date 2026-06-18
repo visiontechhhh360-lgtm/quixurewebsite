@@ -38,7 +38,7 @@ export default function GlobalNetwork() {
   }, []);
 
   return (
-    <section className="relative bg-ink-900 px-6 md:px-12 py-28 overflow-hidden">
+    <section className="relative bg-slate-50 dark:bg-ink-900 px-6 md:px-12 py-28 overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
 
       <div className="relative grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
@@ -49,14 +49,14 @@ export default function GlobalNetwork() {
           transition={{ duration: 0.7 }}
           className="text-left"
         >
-          <p className="text-xs font-bold uppercase tracking-widest text-teal-400 mb-4">
+          <p className="text-xs font-bold uppercase tracking-widest text-teal-600 dark:text-teal-400 mb-4">
             Infrastructure
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-ink-950 dark:text-white leading-tight">
             Global Resilience
             <br /> Network
           </h2>
-          <p className="mt-6 max-w-md text-base text-white/50 leading-relaxed">
+          <p className="mt-6 max-w-md text-base text-ink-600/70 dark:text-white/50 leading-relaxed">
             Access content from 30+ server locations across 25+ countries
             with our high-availability network. Each point on the map
             represents a cluster of dedicated, RAM-only servers.
@@ -75,7 +75,7 @@ export default function GlobalNetwork() {
                 <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full border border-teal-400/40 bg-teal-400/10 text-teal-300">
                   <CheckCircle2 size={18} />
                 </span>
-                <span className="text-sm font-semibold text-white/80">{item}</span>
+                <span className="text-sm font-semibold text-ink-950/80 dark:text-white/80">{item}</span>
               </motion.li>
             ))}
           </ul>

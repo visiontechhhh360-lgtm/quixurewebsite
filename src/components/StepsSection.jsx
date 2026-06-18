@@ -21,7 +21,7 @@ const STEPS = [
 
 export default function StepsSection() {
   return (
-    <section className="relative bg-ink-900 px-6 md:px-12 py-28 overflow-hidden">
+    <section className="relative bg-slate-50 dark:bg-ink-900 px-6 md:px-12 py-28 overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
 
       <div className="relative max-w-5xl mx-auto">
@@ -32,10 +32,10 @@ export default function StepsSection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-20"
         >
-          <p className="text-xs font-bold uppercase tracking-widest text-teal-400 mb-4">
+          <p className="text-xs font-bold uppercase tracking-widest text-teal-600 dark:text-teal-400 mb-4">
             Up and Running in a Minute
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-ink-950 dark:text-white">
             Download. Install. Connect.
           </h2>
         </motion.div>
@@ -72,8 +72,8 @@ export default function StepsSection() {
                   {i + 1}
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2.5">{title}</h3>
-              <p className="max-w-[230px] mx-auto text-sm text-white/50 leading-relaxed">{desc}</p>
+              <h3 className="text-xl font-bold text-ink-950 dark:text-white mb-2.5">{title}</h3>
+              <p className="max-w-[230px] mx-auto text-sm text-ink-600/70 dark:text-white/50 leading-relaxed">{desc}</p>
             </motion.div>
           ))}
         </div>

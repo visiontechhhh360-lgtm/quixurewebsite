@@ -36,7 +36,7 @@ export default function PricingPlans() {
   const navigate = useNavigate();
 
   return (
-    <section className="relative bg-ink-950 px-6 md:px-12 py-28 overflow-hidden">
+    <section className="relative bg-white dark:bg-ink-950 px-6 md:px-12 py-28 overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
       <motion.div
         animate={{ opacity: [0.25, 0.5, 0.25] }}
@@ -57,7 +57,7 @@ export default function PricingPlans() {
               className={`relative rounded-[28px] p-8 text-left flex flex-col ${
                 highlight
                   ? "bg-gradient-to-br from-teal-400 via-teal-500 to-teal-700 shadow-glow"
-                  : "border border-white/10 bg-white/5"
+                  : "border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.03] dark:bg-white/5"
               }`}
             >
               {highlight && (
@@ -78,16 +78,16 @@ export default function PricingPlans() {
                 <Icon size={22} strokeWidth={2.2} />
               </span>
 
-              <h3 className="text-xl font-bold mb-1.5 text-white">{name}</h3>
-              <p className={`text-sm mb-7 ${highlight ? "text-teal-50/90" : "text-white/45"}`}>{tagline}</p>
+              <h3 className={`text-xl font-bold mb-1.5 ${highlight ? "text-white" : "text-ink-950 dark:text-white"}`}>{name}</h3>
+              <p className={`text-sm mb-7 ${highlight ? "text-teal-50/90" : "text-ink-600/70 dark:text-white/45"}`}>{tagline}</p>
 
               <div className="flex items-end gap-1.5 mb-1">
-                <span className="font-display text-4xl font-bold text-white">${price.toFixed(2)}</span>
-                <span className={`pb-1.5 text-sm ${highlight ? "text-teal-50/80" : "text-white/40"}`}>
+                <span className={`font-display text-4xl font-bold ${highlight ? "text-white" : "text-ink-950 dark:text-white"}`}>${price.toFixed(2)}</span>
+                <span className={`pb-1.5 text-sm ${highlight ? "text-teal-50/80" : "text-ink-600/60 dark:text-white/40"}`}>
                   {period}
                 </span>
               </div>
-              <p className={`text-xs mb-8 ${highlight ? "text-teal-50/70" : "text-white/30"}`}>{billedAs}</p>
+              <p className={`text-xs mb-8 ${highlight ? "text-teal-50/70" : "text-ink-600/50 dark:text-white/30"}`}>{billedAs}</p>
 
               <ul className="flex flex-col gap-3.5 mb-9 flex-1">
                 {FEATURES.map((f) => (
@@ -99,7 +99,7 @@ export default function PricingPlans() {
                     >
                       <Check size={11} strokeWidth={3} />
                     </span>
-                    <span className={`text-sm ${highlight ? "text-white/90" : "text-white/60"}`}>{f}</span>
+                    <span className={`text-sm ${highlight ? "text-white/90" : "text-ink-600/70 dark:text-white/60"}`}>{f}</span>
                   </li>
                 ))}
               </ul>
@@ -113,7 +113,7 @@ export default function PricingPlans() {
                 className={`rounded-full px-6 py-3.5 text-sm font-bold transition-colors ${
                   highlight
                     ? "bg-ink-950 text-white hover:bg-ink-800"
-                    : "bg-white/10 text-white hover:bg-teal-400 hover:text-ink-950"
+                    : "bg-ink-950/5 dark:bg-white/10 text-ink-950 dark:text-white hover:bg-teal-400 hover:text-ink-950"
                 }`}
               >
                 Get {name}

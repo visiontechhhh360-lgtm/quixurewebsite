@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ChevronRight, RefreshCw } from "lucide-react";
 import PhoneFrame from "./PhoneFrame";
 import protocolScreen from "../assets/protocol.jpeg";
@@ -57,12 +58,12 @@ export default function PrivacySection() {
             connection and access whatever you want, whenever you want — with
             zero logs and zero compromises.
           </p>
-          <button className="group mt-8 inline-flex items-center gap-2 rounded-full bg-ink-950 px-7 py-3.5 text-sm font-bold text-white shadow-lg hover:bg-teal-600 transition-colors">
+          <Link to="/downloads" className="group mt-8 inline-flex items-center gap-2 rounded-full bg-ink-950 px-7 py-3.5 text-sm font-bold text-white shadow-lg hover:bg-teal-600 transition-colors">
             Get Quixure
             <span className="grid h-6 w-6 place-items-center rounded-full bg-teal-400 text-ink-950 transition-transform group-hover:translate-x-1">
               <ChevronRight size={14} />
             </span>
-          </button>
+          </Link>
         </motion.div>
 
         <motion.div

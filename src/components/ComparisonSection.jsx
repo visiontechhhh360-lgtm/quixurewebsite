@@ -33,7 +33,7 @@ const itemVariants = {
 
 export default function ComparisonSection() {
   return (
-    <section className="relative bg-ink-950 px-6 md:px-12 py-28 overflow-hidden">
+    <section className="relative bg-white dark:bg-ink-950 px-6 md:px-12 py-28 overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
       <motion.div
         animate={{ opacity: [0.25, 0.5, 0.25] }}
@@ -53,10 +53,10 @@ export default function ComparisonSection() {
         transition={{ duration: 0.6 }}
         className="relative text-center max-w-2xl mx-auto mb-16"
       >
-        <p className="text-xs font-bold uppercase tracking-widest text-teal-400 mb-4">
+        <p className="text-xs font-bold uppercase tracking-widest text-teal-600 dark:text-teal-400 mb-4">
           The Difference Is Real
         </p>
-        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-ink-950 dark:text-white">
           Life before and after Quixure
         </h2>
       </motion.div>

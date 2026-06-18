@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ChevronRight, Globe2 } from "lucide-react";
 import Navbar from "./Navbar";
 import DeviceMockup from "./DeviceMockup";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden rounded-[28px] mx-3 md:mx-6 mt-4 bg-ink-900">
-      <div className="absolute inset-0 bg-gradient-to-br from-ink-950 via-ink-900 to-teal-900/40" />
-      <div className="absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_20%,black,transparent)]" />
+    <section className="relative overflow-hidden rounded-[28px] mx-3 md:mx-6 mt-4 bg-teal-50 dark:bg-ink-900 transition-colors duration-300">
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-white to-teal-100 dark:from-ink-950 dark:via-ink-900 dark:to-teal-900/40" />
+      <div className="absolute inset-0 bg-grid opacity-30 dark:opacity-60 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_20%,black,transparent)]" />
       <motion.div
         animate={{ opacity: [0.4, 0.7, 0.4] }}
         transition={{ duration: 6, repeat: Infinity }}
@@ -23,7 +24,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-2 rounded-full border border-teal-400/30 bg-teal-400/10 px-3.5 py-1.5 text-xs font-semibold text-teal-300 mb-6"
+              className="inline-flex items-center gap-2 rounded-full border border-teal-200 dark:border-teal-400/30 bg-teal-50 dark:bg-teal-400/10 px-3.5 py-1.5 text-xs font-semibold text-teal-700 dark:text-teal-300 mb-6"
             >
               <Globe2 size={13} /> 30+ Server Locations Across 25+ Countries
             </motion.div>
@@ -32,7 +33,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] text-white"
+              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] text-ink-950 dark:text-white"
             >
               Browse the internet
               <br />
@@ -43,7 +44,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-6 max-w-md text-base text-white/55 leading-relaxed"
+              className="mt-6 max-w-md text-base text-ink-600/70 dark:text-white/55 leading-relaxed"
             >
               Military-grade encryption, a strict zero-log policy, and
               blazing 10Gbps servers wrapped in one app that just works.
@@ -55,17 +56,17 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-8 flex flex-wrap items-center gap-4"
             >
-              <button className="group flex items-center gap-2 rounded-full bg-teal-400 px-7 py-3.5 text-sm font-bold text-ink-950 shadow-glow hover:bg-teal-300 transition-all">
+              <Link to="/downloads" className="group flex items-center gap-2 rounded-full bg-teal-400 px-7 py-3.5 text-sm font-bold text-ink-950 shadow-glow hover:bg-teal-300 transition-all">
                 Get Quixure
                 <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </button>
+              </Link>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-14 flex flex-wrap items-center gap-6 text-xs font-semibold text-white/40"
+              className="mt-14 flex flex-wrap items-center gap-6 text-xs font-semibold text-ink-600/50 dark:text-white/40"
             >
               <span className="flex items-center gap-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-teal-400" /> Zero-config one-click connect

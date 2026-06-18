@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-teal-50: #e6fbf8;
   --color-teal-100: #c0f5ec;
@@ -49,12 +51,18 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-ink-950);
-  color: #e7f4f2;
+  background: #ffffff;
+  color: #0a0e0f;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark body {
+  background: var(--color-ink-950);
+  color: #e7f4f2;
 }
 
 #root {
@@ -70,17 +78,34 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-ink-950);
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-ink-600);
+  background: #94a3b8;
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-teal-600);
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: var(--color-ink-950);
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-ink-600);
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
   background: var(--color-teal-700);
 }
 
 .text-gradient {
+  background: linear-gradient(90deg, #0a564d 0%, #00a690 60%, #018776 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+html.dark .text-gradient {
   background: linear-gradient(90deg, #ffffff 0%, #8af0e0 60%, #00c4a7 100%);
   -webkit-background-clip: text;
   background-clip: text;

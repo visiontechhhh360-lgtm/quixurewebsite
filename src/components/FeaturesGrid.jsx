@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   PlayCircle,
   ShieldHalf,
@@ -24,7 +25,7 @@ const fadeUp = {
 
 export default function FeaturesGrid() {
   return (
-    <section className="relative bg-ink-900 px-6 md:px-12 py-28 overflow-hidden">
+    <section className="relative bg-slate-50 dark:bg-ink-900 px-6 md:px-12 py-28 overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 bg-grid opacity-[0.06]" />
       <div className="relative max-w-6xl mx-auto">
         <motion.div
@@ -34,10 +35,10 @@ export default function FeaturesGrid() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <p className="text-xs font-bold uppercase tracking-widest text-teal-400 mb-4">
+          <p className="text-xs font-bold uppercase tracking-widest text-teal-600 dark:text-teal-400 mb-4">
             One App, Total Protection
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-ink-950 dark:text-white">
             More than just a VPN
           </h2>
         </motion.div>
@@ -61,15 +62,15 @@ export default function FeaturesGrid() {
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div className="rounded-2xl border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.03] dark:bg-white/5 p-5">
                 <PlayCircle size={22} className="text-teal-300 mb-6" />
-                <p className="text-sm font-semibold text-white leading-snug">
+                <p className="text-sm font-semibold text-ink-950 dark:text-white leading-snug">
                   Stream without limits
                 </p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div className="rounded-2xl border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.03] dark:bg-white/5 p-5">
                 <ShieldHalf size={22} className="text-teal-300 mb-6" />
-                <p className="text-sm font-semibold text-white leading-snug">
+                <p className="text-sm font-semibold text-ink-950 dark:text-white leading-snug">
                   Secure your online activities
                 </p>
               </div>
@@ -79,10 +80,10 @@ export default function FeaturesGrid() {
               {CHIPS.map(({ icon: Icon, label }) => (
                 <div
                   key={label}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-4 text-left"
+                  className="rounded-2xl border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.03] dark:bg-white/5 p-4 text-left"
                 >
                   <Icon size={16} className="text-teal-300 mb-3" />
-                  <p className="text-[11px] font-semibold text-white leading-tight">{label}</p>
+                  <p className="text-[11px] font-semibold text-ink-950 dark:text-white leading-tight">{label}</p>
                 </div>
               ))}
             </div>
@@ -111,15 +112,15 @@ export default function FeaturesGrid() {
             className="flex flex-col gap-6"
           >
             <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div className="rounded-2xl border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.03] dark:bg-white/5 p-5">
                 <Power size={22} className="text-teal-300 mb-6" />
-                <p className="text-sm font-semibold text-white leading-snug">
+                <p className="text-sm font-semibold text-ink-950 dark:text-white leading-snug">
                   Auto kill switch
                 </p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div className="rounded-2xl border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.03] dark:bg-white/5 p-5">
                 <ShieldBan size={22} className="text-teal-300 mb-6" />
-                <p className="text-sm font-semibold text-white leading-snug">
+                <p className="text-sm font-semibold text-ink-950 dark:text-white leading-snug">
                   Blocks malware &amp; trackers
                 </p>
               </div>
@@ -174,10 +175,10 @@ export default function FeaturesGrid() {
           transition={{ duration: 0.6 }}
           className="flex justify-center mt-16"
         >
-          <button className="group flex items-center gap-2 rounded-full bg-teal-400 px-8 py-4 text-sm font-bold text-ink-950 shadow-glow hover:bg-teal-300 transition-colors">
+          <Link to="/downloads" className="group flex items-center gap-2 rounded-full bg-teal-400 px-8 py-4 text-sm font-bold text-ink-950 shadow-glow hover:bg-teal-300 transition-colors">
             Get Quixure
             <ChevronDown size={16} className="-rotate-90 transition-transform group-hover:translate-x-1" />
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

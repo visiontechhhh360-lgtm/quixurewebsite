@@ -92,7 +92,7 @@ export default function FeatureTabs() {
   const category = CATEGORIES.find((c) => c.key === active);
 
   return (
-    <section className="relative bg-ink-950 px-6 md:px-12 py-28 overflow-hidden">
+    <section className="relative bg-white dark:bg-ink-950 px-6 md:px-12 py-28 overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
       <motion.div
         animate={{ opacity: [0.25, 0.5, 0.25] }}
@@ -102,7 +102,7 @@ export default function FeatureTabs() {
 
       <div className="relative max-w-6xl mx-auto">
         <div className="flex justify-center mb-16 px-2">
-          <div className="relative inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1.5">
+          <div className="relative inline-flex items-center gap-1 rounded-full border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.03] dark:bg-white/5 p-1.5">
             {CATEGORIES.map((c) => (
               <button
                 key={c.key}
@@ -116,7 +116,7 @@ export default function FeatureTabs() {
                     className="absolute inset-0 rounded-full bg-teal-400 shadow-glow-sm"
                   />
                 )}
-                <span className={`relative ${active === c.key ? "text-ink-950" : "text-white/60"}`}>
+                <span className={`relative ${active === c.key ? "text-ink-950" : "text-ink-600/60 dark:text-white/60"}`}>
                   {c.label}
                 </span>
               </button>
@@ -140,7 +140,7 @@ export default function FeatureTabs() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -6 }}
-                className={`group relative rounded-3xl border border-white/10 bg-white/5 p-8 text-left overflow-hidden hover:border-teal-400/40 transition-colors ${
+                className={`group relative rounded-3xl border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.03] dark:bg-white/5 p-8 text-left overflow-hidden hover:border-teal-400/40 transition-colors ${
                   size === "lg" ? "md:col-span-2 md:row-span-2 flex flex-col justify-between min-h-[280px]" : "min-h-[200px] flex flex-col"
                 }`}
               >
@@ -154,10 +154,10 @@ export default function FeatureTabs() {
                   >
                     <Icon size={size === "lg" ? 28 : 22} strokeWidth={2.1} />
                   </span>
-                  <h3 className={`relative font-bold text-white mb-3 ${size === "lg" ? "text-2xl" : "text-lg"}`}>
+                  <h3 className={`relative font-bold text-ink-950 dark:text-white mb-3 ${size === "lg" ? "text-2xl" : "text-lg"}`}>
                     {title}
                   </h3>
-                  <p className={`relative text-white/50 leading-relaxed ${size === "lg" ? "text-base max-w-md" : "text-sm"}`}>
+                  <p className={`relative text-ink-600/70 dark:text-white/50 leading-relaxed ${size === "lg" ? "text-base max-w-md" : "text-sm"}`}>
                     {desc}
                   </p>
                 </div>

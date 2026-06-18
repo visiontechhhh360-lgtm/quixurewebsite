@@ -21,8 +21,8 @@ export default function Account() {
 
   return (
     <>
-      <section className="relative overflow-hidden rounded-[28px] mx-3 md:mx-6 mt-4 bg-ink-900">
-        <div className="absolute inset-0 bg-gradient-to-br from-ink-950 via-ink-900 to-teal-900/40" />
+      <section className="relative overflow-hidden rounded-[28px] mx-3 md:mx-6 mt-4 bg-teal-50 dark:bg-ink-900 transition-colors duration-300">
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-white to-teal-100 dark:from-ink-950 dark:via-ink-900 dark:to-teal-900/40" />
         <div className="absolute inset-0 bg-grid opacity-[0.05]" />
         <motion.div
           animate={{ opacity: [0.3, 0.55, 0.3] }}
@@ -45,10 +45,10 @@ export default function Account() {
           transition={{ duration: 0.7 }}
           className="flex-1 text-center lg:text-left"
         >
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-ink-950 dark:text-white leading-tight">
             Login to Your Account
           </h1>
-          <p className="mt-4 text-base text-white/50">
+          <p className="mt-4 text-base text-ink-600/70 dark:text-white/50">
             Please enter your credentials to continue.
           </p>
 
@@ -61,29 +61,29 @@ export default function Account() {
           initial={{ opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="w-full max-w-md rounded-[28px] border border-white/10 bg-white/[0.04] backdrop-blur-xl p-8 md:p-10 text-left"
+          className="w-full max-w-md rounded-[28px] border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.02] dark:bg-white/[0.04] backdrop-blur-xl p-8 md:p-10 text-left"
         >
-          <h2 className="text-2xl font-bold text-white mb-2">Sign In</h2>
-          <p className="text-sm text-white/45 mb-8">
+          <h2 className="text-2xl font-bold text-ink-950 dark:text-white mb-2">Sign In</h2>
+          <p className="text-sm text-ink-600/60 dark:text-white/45 mb-8">
             Welcome back! Please enter your details to sign in to your
             account.
           </p>
 
           <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-5">
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-semibold text-white">
+              <label className="text-sm font-semibold text-ink-950 dark:text-white">
                 Email Address <span className="text-red-400">*</span>
               </label>
               <input
                 type="email"
                 required
                 placeholder="Enter your Email Address"
-                className="rounded-xl border border-white/10 bg-ink-950/60 px-4 py-3.5 text-sm text-white placeholder:text-white/30 outline-none focus:border-teal-400/60 transition-colors"
+                className="rounded-xl border border-ink-950/10 dark:border-white/10 bg-ink-950/5 dark:bg-ink-950/60 px-4 py-3.5 text-sm text-ink-950 dark:text-white placeholder:text-ink-600/40 dark:placeholder:text-white/30 outline-none focus:border-teal-400/60 transition-colors"
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-semibold text-white">
+              <label className="text-sm font-semibold text-ink-950 dark:text-white">
                 Password <span className="text-red-400">*</span>
               </label>
               <div className="relative">
@@ -91,12 +91,12 @@ export default function Account() {
                   type={showPassword ? "text" : "password"}
                   required
                   placeholder="Enter your Password"
-                  className="w-full rounded-xl border border-white/10 bg-ink-950/60 px-4 py-3.5 pr-11 text-sm text-white placeholder:text-white/30 outline-none focus:border-teal-400/60 transition-colors"
+                  className="w-full rounded-xl border border-ink-950/10 dark:border-white/10 bg-ink-950/5 dark:bg-ink-950/60 px-4 py-3.5 pr-11 text-sm text-ink-950 dark:text-white placeholder:text-ink-600/40 dark:placeholder:text-white/30 outline-none focus:border-teal-400/60 transition-colors"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((s) => !s)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/70"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-ink-600/50 dark:text-white/40 hover:text-ink-950 dark:hover:text-white/70"
                   aria-label="Toggle password visibility"
                 >
                   {showPassword ? <EyeOff size={17} /> : <Eye size={17} />}
@@ -105,8 +105,8 @@ export default function Account() {
             </div>
 
             <div className="flex items-center justify-between text-sm">
-              <label className="flex items-center gap-2 text-white/60 cursor-pointer">
-                <input type="checkbox" className="h-4 w-4 rounded border-white/20 bg-ink-950 accent-teal-400" />
+              <label className="flex items-center gap-2 text-ink-600/70 dark:text-white/60 cursor-pointer">
+                <input type="checkbox" className="h-4 w-4 rounded border-ink-950/20 dark:border-white/20 bg-white dark:bg-ink-950 accent-teal-400" />
                 Remember me
               </label>
               <a href="#" className="font-semibold text-teal-300 hover:text-teal-200">
@@ -126,29 +126,29 @@ export default function Account() {
             </a>
 
             <div className="flex items-center gap-3 my-2">
-              <span className="h-px flex-1 bg-white/10" />
-              <span className="text-[11px] font-semibold uppercase tracking-wide text-white/30">
+              <span className="h-px flex-1 bg-ink-950/10 dark:bg-white/10" />
+              <span className="text-[11px] font-semibold uppercase tracking-wide text-ink-600/40 dark:text-white/30">
                 Or sign in with
               </span>
-              <span className="h-px flex-1 bg-white/10" />
+              <span className="h-px flex-1 bg-ink-950/10 dark:bg-white/10" />
             </div>
 
             <div className="grid grid-cols-2 gap-3">
               <button
                 type="button"
-                className="flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+                className="flex items-center justify-center gap-2 rounded-xl border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.03] dark:bg-white/5 px-4 py-3 text-sm font-semibold text-ink-950 dark:text-white hover:bg-ink-950/5 dark:hover:bg-white/10 transition-colors"
               >
                 <GoogleIcon /> Google
               </button>
               <button
                 type="button"
-                className="flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+                className="flex items-center justify-center gap-2 rounded-xl border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.03] dark:bg-white/5 px-4 py-3 text-sm font-semibold text-ink-950 dark:text-white hover:bg-ink-950/5 dark:hover:bg-white/10 transition-colors"
               >
                 <Apple size={17} /> Apple
               </button>
             </div>
 
-            <p className="text-center text-sm text-white/45 mt-2">
+            <p className="text-center text-sm text-ink-600/60 dark:text-white/45 mt-2">
               Don't have an account?{" "}
               <a href="#" className="font-semibold text-teal-300 hover:text-teal-200">
                 Sign Up
