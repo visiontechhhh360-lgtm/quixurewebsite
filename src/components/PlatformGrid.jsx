@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import RisingParticles from "./RisingParticles";
+import PlatformGlyph from "./PlatformGlyph";
 import {
   Monitor,
   Apple,
@@ -10,13 +12,13 @@ import {
 } from "lucide-react";
 
 const PLATFORMS = [
-  { Icon: Monitor, name: "Windows", detail: "Windows 10 & 11" },
-  { Icon: Apple, name: "macOS", detail: "Apple Silicon & Intel" },
-  { Icon: Smartphone, name: "iOS", detail: "iPhone, iOS 15+" },
-  { Icon: Smartphone, name: "Android", detail: "Android 8.0+" },
-  { Icon: Tablet, name: "iPadOS", detail: "All iPad models" },
-  { Icon: Terminal, name: "Linux", detail: "Ubuntu, Debian, Fedora" },
-  { Icon: Puzzle, name: "Browser Extension", detail: "Chrome, Edge, Firefox" },
+  { Icon: Monitor, name: "Windows", detail: "Windows 10 & 11", kind: "desktop" },
+  { Icon: Apple, name: "macOS", detail: "Apple Silicon & Intel", kind: "desktop" },
+  { Icon: Smartphone, name: "iOS", detail: "iPhone, iOS 15+", kind: "mobile" },
+  { Icon: Smartphone, name: "Android", detail: "Android 8.0+", kind: "mobile" },
+  { Icon: Tablet, name: "iPadOS", detail: "All iPad models", kind: "tablet" },
+  { Icon: Terminal, name: "Linux", detail: "Ubuntu, Debian, Fedora", kind: "desktop" },
+  { Icon: Puzzle, name: "Browser Extension", detail: "Chrome, Edge, Firefox", kind: "browser" },
 ];
 
 const fadeUp = {
@@ -28,6 +30,7 @@ export default function PlatformGrid() {
   return (
     <section className="relative bg-white dark:bg-ink-950 px-6 md:px-12 py-28 overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
+      <RisingParticles />
       <motion.div
         animate={{ opacity: [0.25, 0.5, 0.25] }}
         transition={{ duration: 7, repeat: Infinity }}
@@ -51,7 +54,7 @@ export default function PlatformGrid() {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PLATFORMS.map(({ Icon, name, detail }, i) => (
+          {PLATFORMS.map(({ Icon, name, detail, kind }, i) => (
             <motion.div
               key={name}
               variants={fadeUp}
@@ -63,6 +66,11 @@ export default function PlatformGrid() {
               className="group relative rounded-3xl border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.03] dark:bg-white/5 p-7 text-left overflow-hidden hover:border-teal-400/40 transition-colors"
             >
               <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-teal-400/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+
+              <PlatformGlyph
+                kind={kind}
+                className="absolute -right-3 -bottom-4 h-28 w-28 text-ink-950/[0.06] dark:text-white/[0.07] -rotate-6 group-hover:text-teal-400/20 transition-colors"
+              />
 
               <div className="relative flex items-center justify-between mb-6">
                 <motion.span

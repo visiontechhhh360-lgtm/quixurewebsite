@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import RisingParticles from "./RisingParticles";
 import { Download, PackageCheck, Power } from "lucide-react";
 
 const STEPS = [
@@ -23,6 +24,7 @@ export default function StepsSection() {
   return (
     <section className="relative bg-slate-50 dark:bg-ink-900 px-6 md:px-12 py-28 overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
+      <RisingParticles />
 
       <div className="relative max-w-5xl mx-auto">
         <motion.div

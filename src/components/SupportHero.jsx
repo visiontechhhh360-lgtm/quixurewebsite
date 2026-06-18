@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import GlobeBackground from "./GlobeBackground";
 import { Terminal } from "lucide-react";
 import Navbar from "./Navbar";
 
@@ -64,6 +65,7 @@ export default function SupportHero() {
         />
       ))}
 
+      <GlobeBackground />
       <div className="relative z-10">
         <Navbar />
 

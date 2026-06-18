@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import DataStream from "./DataStream";
 import {
   WifiOff,
   Eye,
@@ -35,6 +36,7 @@ export default function ComparisonSection() {
   return (
     <section className="relative bg-white dark:bg-ink-950 px-6 md:px-12 py-28 overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
+      <DataStream />
       <motion.div
         animate={{ opacity: [0.25, 0.5, 0.25] }}
         transition={{ duration: 6, repeat: Infinity }}

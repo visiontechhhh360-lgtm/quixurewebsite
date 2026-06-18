@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import OrbitRings from "./OrbitRings";
 import { Lock, Clock, Send } from "lucide-react";
 
 const POINTS = [
@@ -10,6 +11,7 @@ export default function ContactSection() {
   return (
     <section className="relative bg-slate-50 dark:bg-ink-900 px-6 md:px-12 py-28 overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
+      <OrbitRings side="left" />
       <motion.div
         animate={{ opacity: [0.3, 0.55, 0.3] }}
         transition={{ duration: 7, repeat: Infinity }}

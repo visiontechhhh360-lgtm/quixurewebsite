@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import GlobeBackground from "../components/GlobeBackground";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Lock, ShieldCheck, CreditCard, CheckCircle2 } from "lucide-react";
@@ -54,6 +55,7 @@ export default function Checkout() {
           className="absolute top-0 left-1/3 h-72 w-72 rounded-full bg-teal-500/15 blur-[120px]"
         />
 
+        <GlobeBackground />
         <div className="relative z-10">
           <Navbar />
 

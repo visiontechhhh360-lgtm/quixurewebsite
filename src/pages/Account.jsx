@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import GlobeBackground from "../components/GlobeBackground";
 import { useState } from "react";
 import { Eye, EyeOff, Apple } from "lucide-react";
 import WireframeGlobe from "../components/WireframeGlobe";
@@ -35,6 +36,7 @@ export default function Account() {
           className="absolute bottom-0 right-0 h-[380px] w-[380px] rounded-full bg-teal-400/15 blur-[120px]"
         />
 
+        <GlobeBackground />
         <div className="relative z-10">
           <Navbar />
 

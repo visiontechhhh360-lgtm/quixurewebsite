@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import CircuitPattern from "./CircuitPattern";
 import { useState } from "react";
 import {
   Lock,
@@ -94,6 +95,7 @@ export default function FeatureTabs() {
   return (
     <section className="relative bg-white dark:bg-ink-950 px-6 md:px-12 py-28 overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
+      <CircuitPattern />
       <motion.div
         animate={{ opacity: [0.25, 0.5, 0.25] }}
         transition={{ duration: 7, repeat: Infinity }}

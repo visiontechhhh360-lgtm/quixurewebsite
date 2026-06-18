@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import OrbitRings from "./OrbitRings";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
@@ -27,6 +28,7 @@ export default function FAQSection() {
   return (
     <section className="relative bg-white dark:bg-ink-950 px-6 md:px-12 py-28 overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
+      <OrbitRings />
 
       <div className="relative max-w-3xl mx-auto">
         <motion.div

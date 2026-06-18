@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import CircuitPattern from "./CircuitPattern";
 import {
   Lock,
   MousePointerClick,
@@ -55,6 +56,7 @@ export default function CoreFeatures() {
         className="absolute top-1/3 left-1/2 -translate-x-1/2 h-[380px] w-[640px] rounded-full bg-teal-500/15 blur-[120px]"
       />
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
+      <CircuitPattern />
 
       <div className="relative max-w-6xl mx-auto">
         <motion.div

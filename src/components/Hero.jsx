@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import GlobeBackground from "./GlobeBackground";
 import { Link } from "react-router-dom";
 import { ChevronRight, Globe2 } from "lucide-react";
 import Navbar from "./Navbar";
@@ -15,6 +16,7 @@ export default function Hero() {
         className="absolute -top-32 left-1/2 -translate-x-1/2 h-[420px] w-[700px] rounded-full bg-teal-500/25 blur-[120px]"
       />
 
+      <GlobeBackground />
       <div className="relative z-10">
         <Navbar />
 

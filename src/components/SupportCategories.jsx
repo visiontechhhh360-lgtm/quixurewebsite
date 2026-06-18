@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import RisingParticles from "./RisingParticles";
 import {
   UserCog,
   CreditCard,
@@ -45,6 +46,7 @@ export default function SupportCategories() {
   return (
     <section className="relative bg-white dark:bg-ink-950 px-6 md:px-12 py-28 overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
+      <RisingParticles />
       <motion.div
         animate={{ opacity: [0.25, 0.5, 0.25] }}
         transition={{ duration: 7, repeat: Infinity }}
