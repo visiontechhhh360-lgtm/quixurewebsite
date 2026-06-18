@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const LANDMASSES = [
   { cx: 28, cy: 32, rx: 13, ry: 9 },
@@ -46,29 +46,39 @@ function generateDots() {
 
 export default function GlobeBackground({ className = "", large = false }) {
   const dots = useMemo(() => generateDots(), []);
+  const wrapRef = useRef(null);
+  const [size, setSize] = useState(0);
+
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+
+    const compute = () => {
+      const { width, height } = el.getBoundingClientRect();
+      if (large) {
+        setSize(Math.min(Math.max(width, height) * 1.05, 1100));
+      } else {
+        setSize(Math.min(width, height) * 0.85);
+      }
+    };
+
+    compute();
+    const ro = new ResizeObserver(compute);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [large]);
 
   return (
-    <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
+    <div ref={wrapRef} className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
       <div
         className="absolute opacity-[0.5] dark:opacity-[0.5]"
-        style={
-          large
-            ? {
-                width: "min(120vw, 1100px)",
-                aspectRatio: "1 / 1",
-                left: "50%",
-                top: "50%",
-                transform: "translate(-50%, -50%)",
-              }
-            : {
-                height: "min(85%, 520px)",
-                maxWidth: "80vw",
-                aspectRatio: "1 / 1",
-                left: "50%",
-                top: "50%",
-                transform: "translate(-50%, -50%)",
-              }
-        }
+        style={{
+          width: size,
+          height: size,
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
       >
         <motion.div
           animate={{ opacity: [0.3, 0.55, 0.3] }}
