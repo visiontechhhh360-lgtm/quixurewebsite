@@ -44,20 +44,31 @@ function generateDots() {
   return dots;
 }
 
-export default function GlobeBackground({ className = "" }) {
+export default function GlobeBackground({ className = "", large = false }) {
   const dots = useMemo(() => generateDots(), []);
 
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
       <div
-        className="absolute opacity-[0.55] dark:opacity-[0.55]"
-        style={{
-          width: "min(120vw, 1100px)",
-          aspectRatio: "1 / 1",
-          left: "50%",
-          top: "50%",
-          transform: "translate(-50%, -50%)",
-        }}
+        className="absolute opacity-[0.5] dark:opacity-[0.5]"
+        style={
+          large
+            ? {
+                width: "min(120vw, 1100px)",
+                aspectRatio: "1 / 1",
+                left: "50%",
+                top: "50%",
+                transform: "translate(-50%, -50%)",
+              }
+            : {
+                height: "min(85%, 520px)",
+                maxWidth: "80vw",
+                aspectRatio: "1 / 1",
+                left: "50%",
+                top: "50%",
+                transform: "translate(-50%, -50%)",
+              }
+        }
       >
         <motion.div
           animate={{ opacity: [0.3, 0.55, 0.3] }}

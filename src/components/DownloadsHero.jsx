@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import GlobeBackground from "./GlobeBackground";
 import { Apple, Laptop, Smartphone, Tablet, Terminal, Puzzle, Shield } from "lucide-react";
 import Navbar from "./Navbar";
 
@@ -26,7 +25,6 @@ export default function DownloadsHero() {
         className="absolute -top-32 left-1/2 -translate-x-1/2 h-[420px] w-[700px] rounded-full bg-teal-500/25 blur-[120px]"
       />
 
-      <GlobeBackground />
       <div className="relative z-10">
         <Navbar />
 

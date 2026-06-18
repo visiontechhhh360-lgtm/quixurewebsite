@@ -16,7 +16,7 @@ export default function Hero() {
         className="absolute -top-32 left-1/2 -translate-x-1/2 h-[420px] w-[700px] rounded-full bg-teal-500/25 blur-[120px]"
       />
 
-      <GlobeBackground />
+      <GlobeBackground large />
       <div className="relative z-10">
         <Navbar />
 
