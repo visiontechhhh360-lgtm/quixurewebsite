@@ -8,7 +8,7 @@ const PATHS = [
 
 export default function CircuitPattern({ className = "" }) {
   return (
-    <div className={`absolute inset-0 opacity-[0.35] dark:opacity-[0.5] pointer-events-none ${className}`}>
+    <div className={`absolute inset-0 opacity-[0.55] dark:opacity-[0.5] pointer-events-none ${className}`}>
       <svg viewBox="0 0 450 300" preserveAspectRatio="xMidYMid slice" className="h-full w-full">
         {PATHS.map((d, i) => (
           <g key={i}>

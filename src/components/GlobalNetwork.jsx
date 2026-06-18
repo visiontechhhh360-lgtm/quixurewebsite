@@ -86,7 +86,7 @@ export default function GlobalNetwork() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7 }}
-          className="relative aspect-[4/3] rounded-[28px] border border-white/10 bg-ink-800/60 overflow-hidden shadow-2xl"
+          className="relative aspect-[4/3] rounded-[28px] border border-white/10 bg-ink-900 overflow-hidden shadow-2xl"
         >
           <div className="absolute inset-0 bg-grid opacity-20" />
           <motion.div

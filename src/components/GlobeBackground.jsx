@@ -50,7 +50,7 @@ export default function GlobeBackground({ className = "" }) {
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
       <div
-        className="absolute opacity-[0.35] dark:opacity-[0.55]"
+        className="absolute opacity-[0.55] dark:opacity-[0.55]"
         style={{
           width: "min(120vw, 1100px)",
           aspectRatio: "1 / 1",

@@ -14,7 +14,7 @@ export default function RisingParticles({ className = "", count = 7 }) {
   const particles = DEFAULT_PARTICLES.slice(0, count);
 
   return (
-    <div className={`absolute inset-0 overflow-hidden opacity-[0.45] dark:opacity-[0.65] pointer-events-none ${className}`}>
+    <div className={`absolute inset-0 overflow-hidden opacity-[0.65] dark:opacity-[0.65] pointer-events-none ${className}`}>
       {particles.map((p, i) => (
         <motion.span
           key={i}

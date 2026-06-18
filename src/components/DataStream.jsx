@@ -11,7 +11,7 @@ const COLUMNS = [
 
 export default function DataStream({ className = "" }) {
   return (
-    <div className={`absolute inset-0 overflow-hidden opacity-[0.4] dark:opacity-[0.6] pointer-events-none ${className}`}>
+    <div className={`absolute inset-0 overflow-hidden opacity-[0.6] dark:opacity-[0.6] pointer-events-none ${className}`}>
       {COLUMNS.map((c, i) => (
         <motion.div
           key={i}

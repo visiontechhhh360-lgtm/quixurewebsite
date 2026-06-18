@@ -7,7 +7,7 @@ export default function OrbitRings({ className = "", side = "right" }) {
 
   return (
     <div
-      className={`absolute top-1/2 -translate-y-1/2 opacity-[0.3] dark:opacity-[0.45] pointer-events-none ${className}`}
+      className={`absolute top-1/2 -translate-y-1/2 opacity-[0.45] dark:opacity-[0.45] pointer-events-none ${className}`}
       style={pos}
     >
       <div className="relative" style={{ width: 440, height: 440 }}>
