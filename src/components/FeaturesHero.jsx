@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 export default function FeaturesHero() {
   return (
     <section className="relative overflow-hidden rounded-[28px] mx-3 md:mx-6 mt-4 bg-teal-50 dark:bg-ink-900 transition-colors duration-300">
-      <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-white to-teal-100 dark:from-ink-950 dark:via-ink-900 dark:to-teal-900/40" />
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-white to-teal-100 dark:from-ink-950 dark:via-ink-900 dark:to-ink-950" />
       <div className="absolute inset-0 bg-grid opacity-30 dark:opacity-60 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_30%,black,transparent)]" />
       <motion.div
         animate={{ opacity: [0.4, 0.7, 0.4] }}

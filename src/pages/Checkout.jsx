@@ -47,7 +47,7 @@ export default function Checkout() {
   return (
     <>
       <section className="relative overflow-hidden rounded-[28px] mx-3 md:mx-6 mt-4 bg-teal-50 dark:bg-ink-900 transition-colors duration-300">
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-white to-teal-100 dark:from-ink-950 dark:via-ink-900 dark:to-teal-900/40" />
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-white to-teal-100 dark:from-ink-950 dark:via-ink-900 dark:to-ink-950" />
         <div className="absolute inset-0 bg-grid opacity-[0.06]" />
         <motion.div
           animate={{ opacity: [0.3, 0.55, 0.3] }}
