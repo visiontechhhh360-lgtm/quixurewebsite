@@ -10,7 +10,9 @@ import {
   ShieldBan,
 } from "lucide-react";
 import PhoneFrame from "./PhoneFrame";
+import { useTheme } from "../context/ThemeContext";
 import locationsScreen from "../assets/servers.jpeg";
+import locationsScreenLight from "../assets/Serverlighttheme.jpeg";
 
 const CHIPS = [
   { icon: Power, label: "Kill switch" },
@@ -24,6 +26,9 @@ const fadeUp = {
 };
 
 export default function FeaturesGrid() {
+  const { theme } = useTheme();
+  const screen = theme === "light" ? locationsScreenLight : locationsScreen;
+
   return (
     <section className="relative bg-slate-50 dark:bg-ink-900 px-6 md:px-12 py-28 overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 bg-grid opacity-[0.06]" />
@@ -99,7 +104,7 @@ export default function FeaturesGrid() {
             className="relative flex flex-col items-center justify-center"
           >
             <div className="absolute inset-0 -z-10 rounded-[40px] bg-teal-400/20 blur-[80px]" />
-            <PhoneFrame src={locationsScreen} alt="Quixure VPN — 30+ server locations" className="w-full max-w-[260px]" />
+            <PhoneFrame src={screen} alt="Quixure VPN — 30+ server locations" className="w-full max-w-[260px]" />
           </motion.div>
 
           {/* right column */}
@@ -126,11 +131,11 @@ export default function FeaturesGrid() {
               </div>
             </div>
 
-            <div className="relative flex-1 rounded-3xl bg-gradient-to-br from-ink-700 to-ink-950 border border-teal-400/20 p-6 overflow-hidden min-h-[260px]">
-              <div className="absolute inset-0 bg-grid opacity-10" />
+            <div className="relative flex-1 rounded-3xl bg-gradient-to-br from-white to-slate-100 dark:from-ink-700 dark:to-ink-950 border border-teal-500/30 dark:border-teal-400/20 p-6 overflow-hidden min-h-[260px]">
+              <div className="absolute inset-0 bg-grid opacity-[0.06] dark:opacity-10" />
               <div className="relative flex items-center gap-2 mb-8">
-                <ShieldBan size={18} className="text-teal-300" />
-                <p className="text-sm font-bold text-white">Threat Blocking</p>
+                <ShieldBan size={18} className="text-teal-600 dark:text-teal-300" />
+                <p className="text-sm font-bold text-ink-950 dark:text-white">Threat Blocking</p>
               </div>
 
               <div className="relative grid place-items-center">
@@ -144,7 +149,7 @@ export default function FeaturesGrid() {
                   transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut", delay: 0.6 }}
                   className="absolute h-24 w-24 rounded-full border border-teal-400/30"
                 />
-                <span className="grid h-16 w-16 place-items-center rounded-full bg-teal-400/15 text-teal-300">
+                <span className="grid h-16 w-16 place-items-center rounded-full bg-teal-400/15 text-teal-600 dark:text-teal-300">
                   <ShieldBan size={26} />
                 </span>
               </div>
@@ -157,10 +162,10 @@ export default function FeaturesGrid() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 + i * 0.15 }}
-                    className="flex items-center justify-between text-[11px] text-white/50"
+                    className="flex items-center justify-between text-[11px] text-ink-600/60 dark:text-white/50"
                   >
                     <span>{t}</span>
-                    <span className="text-teal-300 font-semibold">Blocked</span>
+                    <span className="text-teal-600 dark:text-teal-300 font-semibold">Blocked</span>
                   </motion.div>
                 ))}
               </div>

@@ -2,7 +2,9 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronRight, RefreshCw } from "lucide-react";
 import PhoneFrame from "./PhoneFrame";
+import { useTheme } from "../context/ThemeContext";
 import protocolScreen from "../assets/protocol.jpeg";
+import protocolScreenLight from "../assets/protocollighttheme.jpeg";
 
 const PARTICLES = [
   { x: "10%", delay: 0 },
@@ -13,9 +15,12 @@ const PARTICLES = [
 ];
 
 export default function PrivacySection() {
+  const { theme } = useTheme();
+  const screen = theme === "light" ? protocolScreenLight : protocolScreen;
+
   return (
-    <section className="relative px-6 md:px-12 py-28 bg-white overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-[0.04] [mask-image:radial-gradient(ellipse_50%_50%_at_70%_50%,black,transparent)]" />
+    <section className="relative px-6 md:px-12 py-28 bg-white dark:bg-ink-950 overflow-hidden transition-colors duration-300">
+      <div className="absolute inset-0 bg-grid opacity-[0.04] dark:opacity-[0.06] [mask-image:radial-gradient(ellipse_50%_50%_at_70%_50%,black,transparent)]" />
 
       <motion.div
         animate={{ opacity: [0.15, 0.3, 0.15], scale: [1, 1.1, 1] }}
@@ -46,21 +51,21 @@ export default function PrivacySection() {
           transition={{ duration: 0.7 }}
           className="text-left"
         >
-          <p className="text-xs font-bold uppercase tracking-widest text-teal-600 mb-4">
+          <p className="text-xs font-bold uppercase tracking-widest text-teal-600 dark:text-teal-400 mb-4">
             Why Quixure
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-ink-950 leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-ink-950 dark:text-white leading-tight">
             Private. Limitless.
             <br /> Safer Browsing.
           </h2>
-          <p className="mt-6 max-w-md text-base text-ink-600/70 leading-relaxed">
+          <p className="mt-6 max-w-md text-base text-ink-600/70 dark:text-white/50 leading-relaxed">
             Bring internet freedom to your fingertips. Encrypt your internet
             connection and access whatever you want, whenever you want — with
             zero logs and zero compromises.
           </p>
-          <Link to="/downloads" className="group mt-8 inline-flex items-center gap-2 rounded-full bg-ink-950 px-7 py-3.5 text-sm font-bold text-white shadow-lg hover:bg-teal-600 transition-colors">
+          <Link to="/downloads" className="group mt-8 inline-flex items-center gap-2 rounded-full bg-teal-400 px-7 py-3.5 text-sm font-bold text-ink-950 shadow-glow hover:bg-teal-300 transition-colors">
             Get Quixure
-            <span className="grid h-6 w-6 place-items-center rounded-full bg-teal-400 text-ink-950 transition-transform group-hover:translate-x-1">
+            <span className="grid h-6 w-6 place-items-center rounded-full bg-ink-950 text-teal-400 transition-transform group-hover:translate-x-1">
               <ChevronRight size={14} />
             </span>
           </Link>
@@ -88,23 +93,23 @@ export default function PrivacySection() {
             className="absolute inset-0 -z-10 m-auto h-40 w-40 rounded-full bg-teal-400/30 blur-2xl"
           />
 
-          <PhoneFrame src={protocolScreen} alt="Quixure VPN — Protocol selection" className="shadow-2xl" />
+          <PhoneFrame src={screen} alt="Quixure VPN — Protocol selection" className="shadow-2xl" />
 
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -left-12 top-10 flex items-center gap-2.5 rounded-2xl border border-black/5 bg-white px-4 py-3 shadow-xl"
+            className="absolute -left-12 top-10 flex items-center gap-2.5 rounded-2xl border border-black/5 dark:border-white/10 bg-white dark:bg-ink-700/95 px-4 py-3 shadow-xl"
           >
             <motion.span
               animate={{ rotate: 360 }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-              className="grid h-8 w-8 place-items-center rounded-full bg-teal-50 text-teal-600"
+              className="grid h-8 w-8 place-items-center rounded-full bg-teal-50 dark:bg-teal-400/20 text-teal-600 dark:text-teal-300"
             >
               <RefreshCw size={15} />
             </motion.span>
             <div className="text-left">
-              <p className="text-xs font-bold text-ink-950">Connected</p>
-              <p className="text-[10px] text-ink-600/60">AES-256 encrypted</p>
+              <p className="text-xs font-bold text-ink-950 dark:text-white">Connected</p>
+              <p className="text-[10px] text-ink-600/60 dark:text-white/50">AES-256 encrypted</p>
             </div>
           </motion.div>
         </motion.div>

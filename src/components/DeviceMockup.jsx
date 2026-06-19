@@ -1,9 +1,14 @@
 import { motion } from "framer-motion";
 import { Lock, ShieldCheck } from "lucide-react";
 import PhoneFrame from "./PhoneFrame";
+import { useTheme } from "../context/ThemeContext";
 import connectionScreen from "../assets/connection.jpeg";
+import connectionScreenLight from "../assets/connectionlighttheme.jpeg";
 
 export default function DeviceMockup() {
+  const { theme } = useTheme();
+  const screen = theme === "light" ? connectionScreenLight : connectionScreen;
+
   return (
     <div className="relative mx-auto w-full max-w-[300px]">
       {/* glow */}
@@ -14,7 +19,7 @@ export default function DeviceMockup() {
         animate={{ opacity: 1, y: 0, rotate: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <PhoneFrame src={connectionScreen} alt="Quixure VPN — Connected" />
+        <PhoneFrame src={screen} alt="Quixure VPN — Connected" />
       </motion.div>
 
       {/* floating phone */}

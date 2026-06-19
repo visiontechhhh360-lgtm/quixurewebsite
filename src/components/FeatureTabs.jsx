@@ -133,38 +133,33 @@ export default function FeatureTabs() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.4 }}
-            className="grid md:grid-cols-3 gap-6"
+            className="grid lg:grid-cols-[1.3fr_1fr] gap-6 items-stretch"
           >
-            {category.items.map(({ icon: Icon, title, desc, size }, i) => (
-              <motion.div
-                key={title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                whileHover={{ y: -6 }}
-                className={`group relative rounded-3xl border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.03] dark:bg-white/5 p-8 text-left overflow-hidden hover:border-teal-400/40 transition-colors ${
-                  size === "lg" ? "md:col-span-2 md:row-span-2 flex flex-col justify-between min-h-[280px]" : "min-h-[200px] flex flex-col"
-                }`}
-              >
-                <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-teal-400/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+            {category.items
+              .filter((item) => item.size === "lg")
+              .map(({ icon: Icon, title, desc }, i) => (
+                <motion.div
+                  key={title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  whileHover={{ y: -6 }}
+                  className="group relative flex flex-col justify-between rounded-3xl border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.03] dark:bg-white/5 p-8 sm:p-10 text-left overflow-hidden hover:border-teal-400/40 transition-colors min-h-[300px]"
+                >
+                  <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-teal-400/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                <div>
-                  <span
-                    className={`relative grid place-items-center rounded-2xl bg-gradient-to-br from-teal-300 to-teal-600 text-ink-950 shadow-glow-sm mb-6 ${
-                      size === "lg" ? "h-16 w-16" : "h-12 w-12"
-                    }`}
-                  >
-                    <Icon size={size === "lg" ? 28 : 22} strokeWidth={2.1} />
-                  </span>
-                  <h3 className={`relative font-bold text-ink-950 dark:text-white mb-3 ${size === "lg" ? "text-2xl" : "text-lg"}`}>
-                    {title}
-                  </h3>
-                  <p className={`relative text-ink-600/70 dark:text-white/50 leading-relaxed ${size === "lg" ? "text-base max-w-md" : "text-sm"}`}>
-                    {desc}
-                  </p>
-                </div>
+                  <div>
+                    <span className="relative grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-teal-300 to-teal-600 text-ink-950 shadow-glow-sm mb-6">
+                      <Icon size={28} strokeWidth={2.1} />
+                    </span>
+                    <h3 className="relative font-bold text-ink-950 dark:text-white mb-3 text-2xl">
+                      {title}
+                    </h3>
+                    <p className="relative text-ink-600/70 dark:text-white/50 leading-relaxed text-base max-w-md">
+                      {desc}
+                    </p>
+                  </div>
 
-                {size === "lg" && (
                   <div className="relative mt-8 flex items-end gap-1.5 h-14">
                     {[35, 60, 45, 80, 55, 95, 40, 70, 50, 85, 30, 65].map((h, idx) => (
                       <motion.span
@@ -176,9 +171,34 @@ export default function FeatureTabs() {
                       />
                     ))}
                   </div>
-                )}
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+
+            <div className="flex flex-col gap-6">
+              {category.items
+                .filter((item) => item.size === "sm")
+                .map(({ icon: Icon, title, desc }, i) => (
+                  <motion.div
+                    key={title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
+                    whileHover={{ y: -6 }}
+                    className="group relative flex-1 flex flex-col justify-center rounded-3xl border border-ink-950/10 dark:border-white/10 bg-ink-950/[0.03] dark:bg-white/5 p-7 text-left overflow-hidden hover:border-teal-400/40 transition-colors min-h-[140px]"
+                  >
+                    <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-teal-400/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="relative grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-teal-300 to-teal-600 text-ink-950 shadow-glow-sm mb-4">
+                      <Icon size={22} strokeWidth={2.1} />
+                    </span>
+                    <h3 className="relative font-bold text-ink-950 dark:text-white mb-2 text-lg">
+                      {title}
+                    </h3>
+                    <p className="relative text-ink-600/70 dark:text-white/50 leading-relaxed text-sm">
+                      {desc}
+                    </p>
+                  </motion.div>
+                ))}
+            </div>
           </motion.div>
         </AnimatePresence>
       </div>
