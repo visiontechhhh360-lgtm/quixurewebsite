@@ -1,24 +1,17 @@
 import { motion } from "framer-motion";
 import RisingParticles from "./RisingParticles";
 import PlatformGlyph from "./PlatformGlyph";
-import {
-  Monitor,
-  Apple,
-  Smartphone,
-  Tablet,
-  Terminal,
-  Puzzle,
-  Download,
-} from "lucide-react";
+import BrandIcon from "./BrandIcon";
+import { Download } from "lucide-react";
 
 const PLATFORMS = [
-  { Icon: Monitor, name: "Windows", detail: "Windows 10 & 11", kind: "desktop" },
-  { Icon: Apple, name: "macOS", detail: "Apple Silicon & Intel", kind: "desktop" },
-  { Icon: Smartphone, name: "iOS", detail: "iPhone, iOS 15+", kind: "mobile" },
-  { Icon: Smartphone, name: "Android", detail: "Android 8.0+", kind: "mobile" },
-  { Icon: Tablet, name: "iPadOS", detail: "All iPad models", kind: "tablet" },
-  { Icon: Terminal, name: "Linux", detail: "Ubuntu, Debian, Fedora", kind: "desktop" },
-  { Icon: Puzzle, name: "Browser Extension", detail: "Chrome, Edge, Firefox", kind: "browser" },
+  { brand: "windows", name: "Windows", detail: "Windows 10 & 11", kind: "desktop" },
+  { brand: "apple", name: "macOS", detail: "Apple Silicon & Intel", kind: "desktop" },
+  { brand: "apple", name: "iOS", detail: "iPhone, iOS 15+", kind: "mobile" },
+  { brand: "android", name: "Android", detail: "Android 8.0+", kind: "mobile" },
+  { brand: "apple", name: "iPadOS", detail: "All iPad models", kind: "tablet" },
+  { brand: "linux", name: "Linux", detail: "Ubuntu, Debian, Fedora", kind: "desktop" },
+  { brand: "chrome", name: "Browser Extension", detail: "Chrome, Edge, Firefox", kind: "browser" },
 ];
 
 const fadeUp = {
@@ -54,7 +47,7 @@ export default function PlatformGrid() {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PLATFORMS.map(({ Icon, name, detail, kind }, i) => (
+          {PLATFORMS.map(({ brand, name, detail, kind }, i) => (
             <motion.div
               key={name}
               variants={fadeUp}
@@ -77,7 +70,7 @@ export default function PlatformGrid() {
                   whileHover={{ scale: 1.1, rotate: -4 }}
                   className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-teal-300 to-teal-600 text-ink-950 shadow-glow-sm"
                 >
-                  <Icon size={26} strokeWidth={2.1} />
+                  <BrandIcon kind={brand} size={24} />
                 </motion.span>
                 <span className="text-[10px] font-bold uppercase tracking-wide text-teal-600 dark:text-teal-300/70">
                   Free

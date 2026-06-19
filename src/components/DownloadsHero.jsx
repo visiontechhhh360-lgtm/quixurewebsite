@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
-import { Apple, Laptop, Smartphone, Tablet, Terminal, Puzzle, Shield } from "lucide-react";
+import { Shield } from "lucide-react";
+import BrandIcon from "./BrandIcon";
 import Navbar from "./Navbar";
 
 const ORBIT = [
-  { Icon: Laptop, label: "Windows" },
-  { Icon: Apple, label: "macOS" },
-  { Icon: Smartphone, label: "iOS" },
-  { Icon: Smartphone, label: "Android" },
-  { Icon: Tablet, label: "iPad" },
-  { Icon: Terminal, label: "Linux" },
-  { Icon: Puzzle, label: "Extension" },
+  { brand: "windows", label: "Windows" },
+  { brand: "apple", label: "macOS" },
+  { brand: "apple", label: "iOS" },
+  { brand: "android", label: "Android" },
+  { brand: "apple", label: "iPad" },
+  { brand: "linux", label: "Linux" },
+  { brand: "chrome", label: "Extension" },
 ];
 
 const RADIUS = 168;
@@ -86,7 +87,7 @@ export default function DownloadsHero() {
             transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
             className="absolute inset-0"
           >
-            {ORBIT.map(({ Icon, label }, i) => {
+            {ORBIT.map(({ brand, label }, i) => {
               const angle = (i / ORBIT.length) * 2 * Math.PI - Math.PI / 2;
               const cx = RADIUS + 48 + RADIUS * Math.cos(angle);
               const cy = RADIUS + 48 + RADIUS * Math.sin(angle);
@@ -104,11 +105,11 @@ export default function DownloadsHero() {
                     <motion.span
                       animate={{ y: [0, -6, 0] }}
                       transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }}
-                      className="grid h-12 w-12 place-items-center rounded-2xl border border-white/10 bg-ink-800/90 backdrop-blur-xl text-teal-300 shadow-xl"
+                      className="grid h-16 w-16 place-items-center rounded-2xl border border-white/10 bg-ink-800/90 backdrop-blur-xl text-teal-300 shadow-xl"
                     >
-                      <Icon size={20} />
+                      <BrandIcon kind={brand} size={28} />
                     </motion.span>
-                    <span className="rounded-full bg-ink-950/80 px-2 py-0.5 text-[10px] font-semibold text-white/70 whitespace-nowrap">
+                    <span className="rounded-full bg-ink-950/80 px-2.5 py-1 text-xs font-semibold text-white/70 whitespace-nowrap">
                       {label}
                     </span>
                   </motion.div>
@@ -128,12 +129,12 @@ export default function DownloadsHero() {
 
         {/* mobile fallback: simple icon row */}
         <div className="flex sm:hidden flex-wrap items-center justify-center gap-3 px-6 pb-10">
-          {ORBIT.map(({ Icon, label }) => (
+          {ORBIT.map(({ brand, label }) => (
             <span
               key={label}
               className="flex items-center gap-1.5 rounded-full border border-white/10 bg-ink-800/80 px-3 py-1.5 text-[11px] font-semibold text-white/70"
             >
-              <Icon size={13} className="text-teal-300" /> {label}
+              <BrandIcon kind={brand} size={13} className="text-teal-300" /> {label}
             </span>
           ))}
         </div>
