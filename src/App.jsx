@@ -8,6 +8,8 @@ import Features from "./pages/Features";
 import Support from "./pages/Support";
 import Account from "./pages/Account";
 import Checkout from "./pages/Checkout";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
             <Route path="/support" element={<Support />} />
             <Route path="/account" element={<Account />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<Terms />} />
           </Routes>
         </div>
       </BrowserRouter>

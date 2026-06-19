@@ -23,8 +23,8 @@ const COLUMNS = [
     title: "Resources",
     links: [
       { label: "Help Center", to: "/support" },
-      { label: "Privacy Policy", to: "#" },
-      { label: "Terms of Service", to: "#" },
+      { label: "Privacy Policy", to: "/privacy-policy" },
+      { label: "Terms of Service", to: "/terms" },
     ],
   },
 ];
